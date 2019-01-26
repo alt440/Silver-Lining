@@ -1,0 +1,26 @@
+@font-face {
+  font-family: Robotronica;
+  src:url('../fonts/Robotronica.ttf');
+}
+
+.slideshow-container{
+  height: 200px;
+  width: 50%;
+}
+
+img{
+  width: 100%;
+  height: 400px;
+}
+
+.text-caroussel{
+  position: relative;
+  top: -30px;
+}
+
+.timetext{
+  position: relative;
+  font-family: Robotronica;
+  top: 30px;
+  left: 46%;
+}
