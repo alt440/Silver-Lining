@@ -1,15 +1,19 @@
 var express = require('express');
+//create instances of web pages or links
 var router = express.Router();
 var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
+var Request = require("request");
+
+app.set('view engine', 'ejs');
 
 router.get('/', function(req, res){
-  res.sendFile(__dirname+'/homePage.html');
+  res.render('pages/homePage.ejs');
 })
 
-router.get('/otherPage.html', function(req, res){
-  res.sendFile(__dirname+'/otherPage.html');
+router.get('/otherPage.ejs', function(req, res){
+  res.render('pages/otherPage.ejs');
 })
 
 //setting folder as views folder
@@ -26,3 +30,6 @@ app.use('/', router);
 
 app.listen(1337); //listens on port 1337
 console.log("Server is running on port 1337");
+
+var response = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/year");
+console.log(response);
