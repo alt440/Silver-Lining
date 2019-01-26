@@ -21,6 +21,7 @@
   <!-- included typescript file for this page-->
   <script type="text/typescript" src="js/timeOfDayArray.ts"></script>
   <script type="text/typescript" src="js/changeImgCaroussel.ts"></script>
+  <script type="text/javascript" src="js/dropDown.js"></script>
   <!-- included css file for this page-->
   <link rel="stylesheet" href="css/homePage.css">
 
@@ -44,15 +45,19 @@
 
   <!-- dropdown menu-->
   <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+    <button id="buttonDropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
       Select Time Zone
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li>Asia/Shanghai</li>
-      <li>Asia/Kolkata</li>
-      <li>America/New_York</li>
+      <li><a id="firstSelect" href="#">Asia/Shanghai</a></li>
+      <li><a id="secondSelect" href="#">Asia/Kolkata</a></li>
+      <li><a id="thirdSelect" href="#">America/New_York</a></li>
     </ul>
   </div>
+
+  <!-- button for changing timezone-->
+  <button type="button" class="btn btn-primary" id="buttonChangeTimeZone">
+    Change Time Zone</button>
 
   <script type="text/javascript" src="js/typescript.min.js"></script>
   <script type="text/javascript" src="js/typescript.compile.min.js"></script>
