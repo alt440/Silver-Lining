@@ -1,4 +1,6 @@
--Quiz
+-Quiz (truth or dare) -- mention the reason of the environment (impact)
 -Tips for different part of day
 -Page to know about the "stuff"
--Green music??
+-Green music?? (using TouchTunes)
+-2 APIS that I found
+-User backend stuff 
