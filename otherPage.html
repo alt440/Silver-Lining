@@ -50,6 +50,21 @@
         }  }); 
       })
           
+      function deployAPI(){
+        var city = document.getElementById("location-input").value;
+        try {
+          _aqiFeed({  
+            city: city,  
+            callback:function(aqi){  
+              $("#my-second-container").html(aqi.details);  
+            }  
+          }); 
+        }
+        catch (err){
+          document.getElementById("my-second-container").innerHTML = "Formatting Error";
+          // throw err;
+        }
+      }
     </script>
 
   </head>
@@ -124,13 +139,30 @@
 
       
       <div class="row">
-        <!-- <div class="col-lg-4"></div> -->
+        <!-- <div class="col-lg-2"></div> -->
         <div class="col-lg-4">
           <h2>Air Quality</h2>
           <p>Here is a closer look at the air quality of <span id="city"></span>, <span id="country"></span></p>
           <span  id="my-container" ></span>  
         </div>
+        <div class="col-lg-4">
+          <h2></h2>
+          <p>Or, if you want to choose another location</p>
+          <div class="form-group">
+            <input id="location-input">
+            <button type="submit" class="btn btn-primary" id="location-btn" onclick="deployAPI()">Submit</button>
+          </div>
+          <span id="my-second-container"></span>
+        </div>
+        <div class="col-lg-4">
+            <h2>Environment Quiz</h2>
+            <p>Want to test your knowledge about everyday facts ? Or want to learn how to ecologically responsible ? Take this quiz to find out !</p>
+            <p><a class="btn btn-primary" href="/quiz" role="button">View details &raquo;</a></p>
+          </div>
       </div>
+
+      <div ></div>
+      
 
       <!-- Site footer -->
       <footer class="footer">
