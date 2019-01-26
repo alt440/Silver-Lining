@@ -19,6 +19,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
   <!-- included typescript file for this page-->
+  <script type="text/typescript" src="js/timeOfDayArray.ts"></script>
   <script type="text/typescript" src="js/changeImgCaroussel.ts"></script>
   <!-- included css file for this page-->
   <link rel="stylesheet" href="css/homePage.css">
@@ -35,17 +36,22 @@
 
  <!-- Full-width images with number and caption text -->
  <div class="mySlides" id="fade">
-   <div class="timetext">1 / 2</div>
-   <img src="img/breakfast.jpg">
-   <div class="text-caroussel">Boiled food takes more energy than cereals!</div>
+   <div class="slide" id="timeText">1 / 2</div>
+   <img class="slide" id="imageActivity" src="img/breakfast.jpg">
+   <div class="slide" id="text-caroussel">Boiled food takes more energy than cereals!</div>
  </div>
+  </div>
 
- <div class="mySlides" id="fade">
-   <div class="timetext">2 / 2</div>
-   <img src="img/trash.jpg">
-   <div class="text-caroussel">Do not forget to throw your banana to compost!</div>
- </div>
-
+  <!-- dropdown menu-->
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+      Select Time Zone
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li>Asia/Shanghai</li>
+      <li>Asia/Kolkata</li>
+      <li>America/New_York</li>
+    </ul>
   </div>
 
   <script type="text/javascript" src="js/typescript.min.js"></script>

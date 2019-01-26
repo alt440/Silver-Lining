@@ -13,14 +13,20 @@ img{
   height: 400px;
 }
 
-.text-caroussel{
+#text-caroussel{
   position: relative;
   top: -30px;
 }
 
-.timetext{
+#timeText{
   position: relative;
   font-family: Robotronica;
   top: 30px;
   left: 46%;
+}
+
+.dropdown{
+  position: absolute;
+  top: 100px;
+  left: 700px;
 }
