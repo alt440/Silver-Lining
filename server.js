@@ -5,11 +5,39 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 var Request = require("request");
+var parseString = require('xml2js').parseString;
+var jsonQuery = require('json-query');
 
 app.set('view engine', 'ejs');
 
 router.get('/', function(req, res){
-  res.render('pages/homePage.ejs');
+
+  var response = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=2012",
+   function (error, response, body) {
+              if (error) {
+                  throw error;
+              }
+              parseString(body, function (err, result) {
+    console.dir(result.menuItems.menuItem[0].text);
+     res.render('pages/homePage.ejs',{makes:result.menuItems.menuItem});
+     var testdata = {
+      tatas: [
+       {tata:'tata', value:'nuto'},
+       {tata:'tata', value:'nuta'},
+       {tata:'samer'}
+     ]
+   }
+     var query = jsonQuery('tatas[tata=tata].text', {
+  testdata: testdata
+});
+    console.log("query" + JSON.stringify(query));
+});
+
+  //console.log(res);//, {
+  //   response: response
+  // });
+});
+
 })
 
 router.get('/otherPage.ejs', function(req, res){
@@ -31,5 +59,4 @@ app.use('/', router);
 app.listen(1337); //listens on port 1337
 console.log("Server is running on port 1337");
 
-var response = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/year");
-console.log(response);
+//console.log(response);
