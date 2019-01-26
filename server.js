@@ -8,6 +8,9 @@ router.get('/', function(req, res){
   res.sendFile(__dirname+'/homePage.html');
 })
 
+router.get('/otherPage.html', function(req, res){
+  res.sendFile(__dirname+'/otherPage.html');
+})
 
 //setting folder as views folder
 app.set('TypeScript', path.join(__dirname, 'TypeScript'));
