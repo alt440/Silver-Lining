@@ -1,0 +1,12 @@
+.navbar-nav > li{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.background_Env{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: -5;
+}
