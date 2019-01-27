@@ -69,7 +69,7 @@
                                     "Albert Einstein",
                                     "Ralph Waldo Emmerson"
                                 ],
-            "correct"       :   "Albert Einstein",
+            "correct"       :   ["Albert Einstein","Sir Isaac Newton"],
             "explanation"   :   "Albert Einstein drafted the special theory of relativity in 1905.",
         },
         {
@@ -80,7 +80,7 @@
                                     "Benjamin Franklin",
                                     "Abraham Lincoln"
                                 ],
-            "correct"       :   "Thomas Jefferson",
+            "correct"       :   ["Thomas Jefferson"],
             "explanation"   :   "The two dollar bill is seldom seen in circulation. As a result, some businesses are confused when presented with the note.",
         },
         {
@@ -91,7 +91,7 @@
                                     "American Civil War began",
                                     "Declaration of Independence"
                                 ],
-            "correct"       :   "American Civil War began",
+            "correct"       :   ["American Civil War began"],
             "explanation"   :   "South Carolina came under attack when Confederate soldiers attacked Fort Sumter. The war lasted until April 9th 1865.",
         },
 
@@ -181,7 +181,13 @@ quiz = shuffle(quiz);
          * @param {choice} number The li zero-based index of the choice picked
          */
         function processQuestion(choice){
-            if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']){
+            var correct_flag = 0;
+            for (var i = 0; i < quiz[currentquestion]['correct'].length; i++){
+                if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct'][i]){
+                    correct_flag = 1;
+                }
+            }
+            if(correct_flag === 1){
 				$('.choice').eq(choice).addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'});
 				$('#explanation').html('<span class="correct">CORRECT!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
 				score++;
