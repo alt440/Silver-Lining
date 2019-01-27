@@ -2,7 +2,7 @@
 
 A web application that promotes an environmental protection. The site includes plenty of environmental contents, such as;
 
-- Real time air quality level in Montreal
+- Real time air quality level around the world
 
 - Environmental news for 2018 in one sight to look back at environmental issue
 
