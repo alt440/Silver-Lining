@@ -45,9 +45,11 @@
         }
       }).done(function (document){
         var $city = $("#my-container").attr("class");
-        _aqiFeed({  city: $city,  callback:function(aqi){  
-        $("#my-container").html(aqi.details);  
-        }  }); 
+        _aqiFeed({  
+          city: $city, 
+          display:"%details", 
+          container: "my-container"
+        }); 
       })
           
       function deployAPI(){
@@ -55,9 +57,8 @@
         try {
           _aqiFeed({  
             city: city,  
-            callback:function(aqi){  
-              $("#my-second-container").html(aqi.details);  
-            }  
+            display: "%details",
+            container: "my-second-container" 
           }); 
         }
         catch (err){
