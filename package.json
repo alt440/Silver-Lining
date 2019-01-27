@@ -11,6 +11,20 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
-  }
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "json-query": "^2.2.2",
+    "request": "^2.88.0",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alt440/Silver-Lining.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/alt440/Silver-Lining/issues"
+  },
+  "homepage": "https://github.com/alt440/Silver-Lining#readme"
 }

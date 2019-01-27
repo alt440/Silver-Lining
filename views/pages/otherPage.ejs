@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <title>Home Page</title>
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/">-->
+
+    <!-- Custom styles for this template -->
+    <link href="css/justified-nav.css" rel="stylesheet">
+
+    <!-- Air Quality API link-->
+
+    <script type="text/javascript" charset="utf-8">
+
+      // Air Quality API script
+      (function(w,d,t,f){  w[f]=w[f]||function(c,k,n){s=w[f],k=s['k']=(s['k']||(k?('&k='+k):''));s['c']=
+      c=(c  instanceof  Array)?c:[c];s['n']=n=n||0;L=d.createElement(t),e=d.getElementsByTagName(t)[0];
+      L.async=1;L.src='//feed.aqicn.org/feed/'+(c[n].city)+'/'+(c[n].lang||'')+'/feed.v1.js?n='+n+k;
+      e.parentNode.insertBefore(L,e);  };  })(  window,document,'script','_aqiFeed'  );
+
+      $.ajax({
+        url: "https://geoip-db.com/jsonp",
+        jsonpCallback: "callback",
+        dataType: "jsonp",
+        success: function( location ) {
+          $('#country').html(location.country_name);
+          $('#city').html(location.city);
+          $("#my-container").addClass(location.city);
+        }
+      }).done(function (document){
+        var $city = $("#my-container").attr("class");
+        _aqiFeed({  city: $city,  callback:function(aqi){
+        $("#my-container").html(aqi.details);
+        }  });
+      })
+
+      function deployAPI(){
+        var city = document.getElementById("location-input").value;
+        try {
+          _aqiFeed({
+            city: city,
+            callback:function(aqi){
+              $("#my-second-container").html(aqi.details);
+            }
+          });
+        }
+        catch (err){
+          document.getElementById("my-second-container").innerHTML = "Formatting Error";
+          // throw err;
+        }
+      }
+    </script>
+
+    <link href="css/otherPage.css" rel="stylesheet">
+
+    <!-- included typescript file for this page-->
+    <script type="text/typescript" src="js/timeOfDayArray.ts"></script>
+    <script type="text/typescript" src="js/changeImgCaroussel.ts"></script>
+    <script type="text/javascript" src="js/dropDown.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">FEW Project</h3>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <a class="navbar-brand bg-dark" href="#">FEW Project</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link text-dark" id="HOME" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" id="QUIZ" href="#">Quiz</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" id="MUSIC" href="#">Music Propaganda</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" id="AIR" href="#">Air Pollution</a>
+              </li>
+              <li>
+                <a class="nav-link text-dark" id="CARBON" href="#">Carbon Emissions</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron" id="topPageNotifications">
+        <!-- slide show of images from: https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+       <!-- Full-width images with number and caption text -->
+       <div class="mySlides" id="fade">
+         <div class="slide" id="timeText">1 / 2</div>
+         <img class="slide" id="imageActivity" src="img/breakfast.jpg">
+         <div class="slide" id="text-caroussel">Boiled food takes more energy than cereals!</div>
+       </div>
+        </div>
+
+        <!-- dropdown menu-->
+        <div class="dropdown">
+          <button id="buttonDropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Asia/Shanghai
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a id="firstSelect" href="#">Asia/Shanghai</a></li>
+            <li><a id="secondSelect" href="#">Asia/Kolkata</a></li>
+            <li><a id="thirdSelect" href="#">America/New_York</a></li>
+          </ul>
+
+
+        <!-- button for changing timezone-->
+        <button type="button" class="btn btn-primary dropdown" id="buttonChangeTimeZone">
+          Change Time Zone</button>
+        </div>
+      </div>
+
+      <!-- Example row of columns -->
+<<<<<<< HEAD:otherPage.html
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Air Quality</h2>
+          <p>Here is a closer look at the air quality of <span id="city"></span>, <span id="country"></span></p>
+          <span  id="my-container" ></span>
+        </div>
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Environment Quiz</h2>
+          <p>Want to test your knowledge about everyday facts ? Or want to learn how to ecologically responsible ? Take this quiz to find out !</p>
+          <p><a class="btn btn-primary" href="/quiz" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+
+
+=======
+
+>>>>>>> origin/new_quiz:views/pages/otherPage.ejs
+      <div class="row">
+        <!-- <div class="col-lg-2"></div> -->
+        <div class="col-lg-4">
+          <h2></h2>
+          <p>Or, if you want to choose another location</p>
+          <div class="form-group">
+            <input id="location-input" placeholder="City Name">
+            <button type="submit" class="btn btn-primary" id="location-btn" onclick="deployAPI()">Submit</button>
+          </div>
+          <span id="my-second-container"></span>
+        </div>
+      </div>
+
+      <div ></div>
+
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; Company 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript" src="js/typescript.min.js"></script>
+    <script type="text/javascript" src="js/typescript.compile.min.js"></script>
+  </body>
+</html>
