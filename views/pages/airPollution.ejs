@@ -22,9 +22,52 @@
     <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/">-->
 
     <script type="text/javascript" src="js/navBarInteractions.js"></script>
+    <link rel="stylesheet" href="css/airPollution.css">
   </head>
 
   <body>
+
+    <script type="text/javascript" charset="utf-8">
+
+      // Air Quality API script
+      (function(w,d,t,f){  w[f]=w[f]||function(c,k,n){s=w[f],k=s['k']=(s['k']||(k?('&k='+k):''));s['c']=
+      c=(c  instanceof  Array)?c:[c];s['n']=n=n||0;L=d.createElement(t),e=d.getElementsByTagName(t)[0];
+      L.async=1;L.src='//feed.aqicn.org/feed/'+(c[n].city)+'/'+(c[n].lang||'')+'/feed.v1.js?n='+n+k;
+      e.parentNode.insertBefore(L,e);  };  })(  window,document,'script','_aqiFeed'  );
+
+      $.ajax({
+        url: "https://geoip-db.com/jsonp",
+        jsonpCallback: "callback",
+        dataType: "jsonp",
+        success: function( location ) {
+          $('#country').html(location.country_name);
+          $('#city').html(location.city);
+          $("#my-container").addClass(location.city);
+        }
+      }).done(function (document){
+        var $city = $("#my-container").attr("class");
+        _aqiFeed({
+          city: $city,
+          display:"<span style='%style;padding:0 5px'>%impact</span> (%aqiv on %date)",
+          container: "my-container"
+        });
+      })
+
+      function deployAPI(){
+        var city = document.getElementById("location-input").value;
+        try {
+          _aqiFeed({
+            city: city,
+            display:"<span style='%style;padding:0 5px'>%impact</span> (%aqiv on %date)",
+            container: "my-second-container"
+          });
+        }
+        catch (err){
+          document.getElementById("my-second-container").innerHTML = "Formatting Error";
+          // throw err;
+        }
+      }
+    </script>
 
     <div class="masthead">
       <h3 class="text-muted">FEW Project</h3>
@@ -56,5 +99,61 @@
 
     </div>
 
+    <br/>
+    <br/>
+      <h2>International Air Pollution Search</h2>
+      <p>Type any location below</p>
+      <div class="form-group">
+        <input id="location-input" placeholder="City Name">
+        <button type="submit" class="btn btn-primary" id="location-btn" onclick="deployAPI()">Submit</button>
+      </div>
+      <span id="my-second-container" style="pointer-events: none; font-weight: strong;"></span>
+
+      <table class="infoaqitable cautionary">
+       <thead>
+          <tr>
+             <td>AQI</td>
+             <td>Air Pollution Level</td>
+             <td>Health Implications</td>
+             <td>Cautionary Statement (for PM2.5)</td>
+          </tr>
+       </thead>
+       <tr style="background-color:#009966;">
+          <td class='aqibtxt' nowrap="true">0 - 50</td>
+          <td class='aqibtxt'>Good</td>
+          <td class='aqibtxt'>Air quality is considered satisfactory, and air pollution poses little or no risk</td>
+          <td class='aqibtxt'>None</td>
+       </tr>
+       <tr style="background-color:#ffde33" class='aqibtxt'>
+          <td class='aqibtxt' nowrap="true">51 -100</td>
+          <td class='aqibtxt'>Moderate</td>
+          <td class='aqibtxt'>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.</td>
+          <td class='aqibtxt'>Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.</td>
+       </tr>
+       <tr style="background-color:#ff9933;">
+          <td class='aqibtxt' nowrap="true">101-150</td>
+          <td class='aqibtxt'>Unhealthy for Sensitive Groups</td>
+          <td class='aqibtxt'>Members of sensitive groups may experience health effects. The general public is not likely to be affected.</td>
+          <td class='aqibtxt'>Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.</td>
+       </tr>
+       <tr style="background-color:#cc0033;">
+          <td class='aqiwtxt' nowrap="true">151-200</td>
+          <td class='aqiwtxt'>Unhealthy</td>
+          <td class='aqiwtxt'>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</td>
+          <td class='aqiwtxt'>Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion</td>
+       </tr>
+       <tr style="background-color:#660099;">
+          <td class='aqiwtxt' nowrap="true">201-300</td>
+          <td class='aqiwtxt'>Very Unhealthy</td>
+          <td class='aqiwtxt'>Health warnings of emergency conditions. The entire population is more likely to be affected.</td>
+          <td class='aqiwtxt'>Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.</td>
+       </tr>
+       <tr style="background-color:#7e0023;">
+        <td class='aqiwtxt' nowrap="true">300+</td>
+        <td class='aqiwtxt'>Hazardous</td>
+        <td class='aqiwtxt'>Health alert: everyone may experience more serious health effects</td>
+        <td class='aqiwtxt'>Everyone should avoid all outdoor exertion</td>
+      </tr>
+    </table>
   </body>
   </html>

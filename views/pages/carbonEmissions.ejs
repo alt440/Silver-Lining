@@ -30,6 +30,13 @@
 
     <!-- hide score stuff before input request-->
     <script>
+      var isAppear = false;
+      $(document).ready(function(){
+        if(!isAppear)
+          $('#surroundScore').hide();
+        else
+          $('#surroundScore').show();
+      })
       document.getElementById("surroundScore").style.visibility = "hidden";
     </script>
 
@@ -125,7 +132,7 @@
       }
 
       document.getElementById("surroundScore").style.visibility = "visible";
-
+      isAppear=true;
     </script>
     <% } %>
 
