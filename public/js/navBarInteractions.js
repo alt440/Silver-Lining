@@ -1,21 +1,21 @@
-$(document).ready({
+$(document).ready(function(){
   $('#HOME').click(function(){
-    window.location = "/otherPage";
+    document.location.href = "/otherPage";
   })
 
   $('#QUIZ').click(function(){
-    window.location = "/quiz";
+    document.location.href = "/quiz";
   })
 
   $('#AIR').click(function(){
-
+    document.location.href = "/airPollution";
   })
 
   $('#MUSIC').click(function(){
-
+    document.location.href = "/musicPropaganda";
   })
 
   $('#CARBON').click(function(){
-    
+    document.location.href = "/carbonEmissions";
   })
 });

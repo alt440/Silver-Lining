@@ -53,7 +53,7 @@ function getTimeOfDayEvent(){
 
   var date;
 
-  if(localStorage.getItem("timezone").localeCompare("Select Time Zone")!=0 &&
+  if(localStorage.getItem("timezone").localeCompare("Select Location")!=0 &&
       localStorage.getItem("timezone") != undefined){
         date = new Date().toLocaleString("en-US", {timeZone: localStorage.getItem("timezone")});
         date = new Date(date);

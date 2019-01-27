@@ -48,8 +48,16 @@ router.get('/quiz', function(req, res){
   res.render('pages/quiz.ejs');
 })
 
-router.get('/quiz', function(req, res){
-  res.sendFile(__dirname+'/quiz.html');
+router.get('/carbonEmissions', function(req, res){
+  res.render('pages/carbonEmissions.ejs');
+})
+
+router.get('/airPollution', function(req, res){
+  res.render('pages/airPollution.ejs');
+})
+
+router.get('/musicPropaganda', function(req, res){
+  res.render('pages/musicPropaganda.ejs');
 })
 
 //setting folder as views folder
