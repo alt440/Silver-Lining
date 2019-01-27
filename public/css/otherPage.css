@@ -28,7 +28,7 @@ img{
   font-family: Robotronica;
   top: 30px;
   left: 0%;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .dropDown{
@@ -54,4 +54,11 @@ img{
 
 .blackFont{
   color: #000000;
+}
+
+.col-lg-4 {
+  position: relative;
+}
+.row{
+  position: relative;
 }

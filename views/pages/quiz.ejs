@@ -270,7 +270,7 @@ quiz = shuffle(quiz);
         function processQuestion(choice){
             if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']){
 				$('.choice').eq(choice).addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'});
-				$('#explanation').html('<span class="correct">CORRECT!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
+				$('#explanation').html('<span class="correct">CORRECT!</span> '/* + htmlEncode(quiz[currentquestion]['explanation'])*/);
 				score++;
 			} else {
                 $('.choice').eq(choice).addClass('btn-danger').css({'font-weight':'bold', 'border-color':'#f93939', 'color':'#fff'});
