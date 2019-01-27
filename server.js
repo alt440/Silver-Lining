@@ -48,6 +48,10 @@ router.get('/quiz', function(req, res){
   res.render('pages/quiz.ejs');
 })
 
+router.get('/quiz', function(req, res){
+  res.sendFile(__dirname+'/quiz.html');
+})
+
 //setting folder as views folder
 app.set('TypeScript', path.join(__dirname, 'TypeScript'));
 //enabling css and js
