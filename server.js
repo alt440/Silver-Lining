@@ -105,15 +105,10 @@ router.post('/carbonEmissions',async(req,res)=>{
                       console.log("EMISSION!! "+ JSON.stringify(emissions));
                       console.log("VEHICLE!! "+ JSON.stringify(smtg.menuItems));
                       res.render('pages/carbonEmissions.ejs',{emissions:JSON.stringify(emissions),vehicles:JSON.stringify(smtg.menuItems)});
-
                   }
                 });
-
-
-
         });
       }
-
     }
     catch(err){
       console.log(err);
@@ -155,7 +150,7 @@ router.post('/carbonEmissions',async(req,res)=>{
 });
 })
 
-router.get('/otherPage', function(req, res){
+router.get('/', function(req, res){
   res.render('pages/otherPage.ejs');
 })
 
@@ -175,9 +170,9 @@ router.get('/musicPropaganda', function(req, res){
   res.render('pages/musicPropaganda.ejs');
 })
 
-router.post('/musicPropaganda', function(req, res){
+// router.post('/musicPropaganda', function(req, res){
   
-})
+// })
 
 //setting folder as views folder
 app.set('TypeScript', path.join(__dirname, 'TypeScript'));

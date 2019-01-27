@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('#HOME').click(function(){
-    document.location.href = "/otherPage";
+    document.location.href = "/";
   })
 
   $('#QUIZ').click(function(){
