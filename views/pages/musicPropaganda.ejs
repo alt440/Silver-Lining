@@ -22,6 +22,80 @@
     <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/">-->
 
     <script type="text/javascript" src="js/navBarInteractions.js"></script>
+
+    <script>
+      var jsonObj = {
+                      "artists":[
+                          {"artistId": 129214, "artistName": "IMAGINE DRAGONS"},
+                          {"artistId": 129214, "artistName": "IMAGINE DRAGONS"},
+                          {"artistId": 129214, "artistName": "IMAGINE DRAGONS"},
+                          {"artistId": 736, "artistName": "CHAPMAN, TRACY"},
+                          {"artistId": 736, "artistName": "CHAPMAN, TRACY"},
+                          {"artistId": 382, "artistName": "CARS, THE"},
+                          {"artistId": 382, "artistName": "CARS, THE"},
+                          {"artistId": 382, "artistName": "CARS, THE"},
+                          {"artistId": 382, "artistName": "CARS, THE"},
+                          {"artistId": 496, "artistName": "AC/DC"},
+                          {"artistId": 496, "artistName": "AC/DC"},
+                          {"artistId": 328, "artistName": "PRESLEY, ELVIS"},
+                          {"artistId": 328, "artistName": "PRESLEY, ELVIS"},
+                          {"artistId": 328, "artistName": "PRESLEY, ELVIS"},
+                          {"artistId": 328, "artistName": "PRESLEY, ELVIS"},
+                          {"artistId": 328, "artistName": "PRESLEY, ELVIS"},
+                          {"artistId": 2196, "artistName": "TEMPTATIONS, THE"},
+                          {"artistId": 2196, "artistName": "TEMPTATIONS, THE"},
+                          {"artistId": 588, "artistName": "ROLLING STONES, THE"},
+                          {"artistId": 588, "artistName": "ROLLING STONES, THE"}
+                      ],
+                      "songs":[
+                          {"songId": 93787101, "songTitle": "Radioactive"},
+                          {"songId": 93787101, "songTitle": "Radioactive"},
+                          {"songId": 93787101, "songTitle": "Radioactive"},
+                          {"songId": 96077402, "songTitle": "Fast Car"},
+                          {"songId": 96077402, "songTitle": "Fast Car"},
+                          {"songId": 6046410, "songTitle": "Let's Go"},
+                          {"songId": 6046410, "songTitle": "Let's Go"},
+                          {"songId": 6046410, "songTitle": "Let's Go"},
+                          {"songId": 6046410, "songTitle": "Let's Go"},
+                          {"songId": 79141303, "songTitle": "Moneytalks"},
+                          {"songId": 79141303, "songTitle": "Moneytalks"},
+                          {"songId": 638218, "songTitle": "Suspicious Minds"},
+                          {"songId": 638218, "songTitle": "Suspicious Minds"},
+                          {"songId": 638218, "songTitle": "Suspicious Minds"},
+                          {"songId": 638218, "songTitle": "Suspicious Minds"},
+                          {"songId": 638218, "songTitle": "Suspicious Minds"},
+                          {"songId": 53085306, "songTitle": "Beauty Is Only Skin Deep"},
+                          {"songId": 53085306, "songTitle": "Beauty Is Only Skin Deep"},
+                          {"songId": 71666706, "songTitle": "Get Off Of My Cloud"},
+                          {"songId": 71666706, "songTitle": "Get Off Of My Cloud"}
+                      ]
+                  };
+
+      function triggerSearch(){
+        var artist = document.getElementById("artist").value.toLowerCase();
+        var artist_flag = 0;
+        var song = document.getElementById("song").value.toLowerCase();
+        var song_flag = 0;
+        for (var i = 0; i < jsonObj.artists.length; i++){
+          if (artist === jsonObj.artists[i].artistName.toLowerCase()){
+            document.getElementById("artist_search").innerHTML = "This artist has some songs about nature and environment.";
+            artist_flag = 1;
+          }
+        }
+        if (artist_flag === 0){
+          document.getElementById("artist_search").innerHTML = "This artist is not found.";
+        }
+        for (var i = 0; i < jsonObj.songs.length; i++){
+          if (song === jsonObj.songs[i].songTitle.toLowerCase()){
+            document.getElementById("song_search").innerHTML = "This song is about nature and environment.";
+            song_flag = 1;
+          }
+        }
+        if (songs_flag === 0){
+          document.getElementById("song_search").innerHTML = "This song is not found.";
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -59,17 +133,29 @@
     <br/>
     <br/>
     <br/>
-    <h3>Our White-Listed Music</h3>
+    <h3>Our Whitelisted Music</h3>
 
     <p>Here is an eco-friendly playlist if you are feeling in the mood.</p>
     <iframe src="https://open.spotify.com/embed/user/metrolyrics/playlist/3nzSm70WLwGpyj0SBR8OWL"
       width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
     <br/>
-    <h4>Search for More White-Listed Music</h4>
-    <form method="POST">
+    <div class="row">
+      <div class="col-lg-4">
+        <h4>Search for More Whitelisted Music</h4>
+        <form>
+          <label>Name of artist: <input type="text" id="artist" name="artist"></label><br/>
+          <h2>Or</h2>
+          <label>Name of song: <input type="text" id="song" name="song"></label><br/>
+          <input class="btn-primary" onclick="triggerSearch()" value="Submit">      
+        </form>
+      </div>
 
-    </form>
+      <div class="col-lg-4">
+        <div id="artist_search"></div>
+        <div id="song_search"></div>
+      </div>
+    </div>
 
   </body>
   </html>
