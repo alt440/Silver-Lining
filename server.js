@@ -60,6 +60,10 @@ router.get('/musicPropaganda', function(req, res){
   res.render('pages/musicPropaganda.ejs');
 })
 
+router.post('/musicPropaganda', function(req, res){
+  
+})
+
 //setting folder as views folder
 app.set('TypeScript', path.join(__dirname, 'TypeScript'));
 //enabling css and js
