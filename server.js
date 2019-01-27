@@ -15,7 +15,7 @@ router.get('/', function(req, res){
 
     //var menuItems = result.menuItems;
      res.render('pages/homePage.ejs');
-   });
+  // });
    //console.log("response" + res);
 // //      var testdata = {
 // //       tatas: [
@@ -26,7 +26,7 @@ router.get('/', function(req, res){
 // //    }
 // //      var query = jsonQuery('*tatas[tata=tata].text', {
 // //   testdata: testdata
- });
+ //});
 // // var data = {
 // //   people: [
 // //     {name: 'Matt', country: 'NZ'},
