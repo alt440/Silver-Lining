@@ -12,22 +12,11 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
-    var quiztitle = "Bobby's Sample Quiz";
-
-    /**
-    * Set the information about your questions here. The correct answer string needs to match
-    * the correct choice exactly, as it does string matching. (case sensitive)
-    *
-    */
-
-/**
-*Let's create the randomization of the questions!
-*/
+    var quiztitle = "Environment Quiz";
 
     function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
 
         // Pick a remaining element...
@@ -62,7 +51,7 @@
     var quiz = 
     [
         {
-            "question"      :   "Q1: Who came up with the theory of relativity?",
+            "question"      :   "Question: Who came up with the theory of relativity?",
             "choices"       :   [
                                     "Sir Isaac Newton",
                                     "Nicolaus Copernicus",
@@ -73,7 +62,7 @@
             "explanation"   :   "Albert Einstein drafted the special theory of relativity in 1905.",
         },
         {
-            "question"      :   "Q2: Who is on the two dollar bill?",
+            "question"      :   "Question: Who is on the two dollar bill?",
             "choices"       :   [
                                     "Thomas Jefferson",
                                     "Dwight D. Eisenhower",
@@ -84,7 +73,7 @@
             "explanation"   :   "The two dollar bill is seldom seen in circulation. As a result, some businesses are confused when presented with the note.",
         },
         {
-            "question"      :   "Q3: What event began on April 12, 1861?",
+            "question"      :   "Question: What event began on April 12, 1861?",
             "choices"       :   [
                                     "First manned flight",
                                     "California became a state",
