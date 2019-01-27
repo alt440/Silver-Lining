@@ -91,7 +91,7 @@
             song_flag = 1;
           }
         }
-        if (songs_flag === 0){
+        if (song_flag === 0){
           document.getElementById("song_search").innerHTML = "This song is not found.";
         }
       }
@@ -147,13 +147,13 @@
           <label>Name of artist: <input type="text" id="artist" name="artist"></label><br/>
           <h2>Or</h2>
           <label>Name of song: <input type="text" id="song" name="song"></label><br/>
-          <input class="btn-primary" onclick="triggerSearch()" value="Submit">      
+          <input class="btn-primary" onclick="triggerSearch()" value="Submit" style="width:80px;">      
         </form>
       </div>
 
       <div class="col-lg-4">
-        <div id="artist_search"></div>
-        <div id="song_search"></div>
+        <b><div id="artist_search"></div></b>
+        <b><div id="song_search"></div></b>
       </div>
     </div>
 
