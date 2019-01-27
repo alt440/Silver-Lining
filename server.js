@@ -108,7 +108,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 //to make all webFlow valid from router variable
 app.use('/', router);
 
-app.listen(1337); //listens on port 1337
+app.listen(3000); //listens on port 1337
 console.log("Server is running on port 1337");
 
 //console.log(response);
