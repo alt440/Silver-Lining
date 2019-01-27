@@ -12,7 +12,18 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
-    var quiztitle = "Environment Quiz";
+    var quiztitle = "The FEW Quiz";
+
+		//Source @ https://www.q4quiz.com/environment-quiz-questions-and-answers/
+    /**
+    * Set the information about your questions here. The correct answer string needs to match
+    * the correct choice exactly, as it does string matching. (case sensitive)
+    *
+    */
+
+/**
+*Let's create the randomization of the questions!
+*/
 
     function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -31,7 +42,7 @@
 
     return array;
     }
-            
+
     if (!("scramble" in Array.prototype)) {
     Object.defineProperty(Array.prototype, "scramble", {
         enumerable: false,
@@ -46,43 +57,130 @@
         return this;
         }
     });
-    }		
-	    
-    var quiz = 
+    }
+
+    var quiz =
     [
         {
-            "question"      :   "Question: Who came up with the theory of relativity?",
+            "question"      :   "Q1: What is recyclable?",
             "choices"       :   [
-                                    "Sir Isaac Newton",
-                                    "Nicolaus Copernicus",
-                                    "Albert Einstein",
+                                    "Plastic",
+                                    "Fish",
+                                    "Cardboard",
                                     "Ralph Waldo Emmerson"
                                 ],
-            "correct"       :   ["Albert Einstein","Sir Isaac Newton"],
-            "explanation"   :   "Albert Einstein drafted the special theory of relativity in 1905.",
+            "correct"       :   "Cardboard",
+            "explanation"   :   "The only thing that can be reused for other purposes is cardboard.",
+						"consequence"		:		"Consequence: You must take public transportation for the next week.",
         },
         {
-            "question"      :   "Question: Who is on the two dollar bill?",
+            "question"      :   "Q2: What once covered 14% of the earth’s land area, but by 1991 over half had been destroyed?",
             "choices"       :   [
-                                    "Thomas Jefferson",
-                                    "Dwight D. Eisenhower",
-                                    "Benjamin Franklin",
-                                    "Abraham Lincoln"
+                                    "Land",
+                                    "Volcanoes",
+                                    "Oranges",
+                                    "Rain Forest"
                                 ],
-            "correct"       :   ["Thomas Jefferson"],
-            "explanation"   :   "The two dollar bill is seldom seen in circulation. As a result, some businesses are confused when presented with the note.",
+            "correct"       :   "Rain Forest",
+            "explanation"   :   "You shoulda known.",
+						"consequence"		:		"Consequence: You must not waste any food for the next week",
         },
         {
-            "question"      :   "Question: What event began on April 12, 1861?",
+            "question"      :   "Q3: Which environmental pressure group was founded in the UK in 1971?",
             "choices"       :   [
-                                    "First manned flight",
-                                    "California became a state",
-                                    "American Civil War began",
-                                    "Declaration of Independence"
+                                    "First Earth, Last Earth",
+                                    "Greenpeace",
+                                    "GHG",
+                                    "Friends of the Earth"
                                 ],
-            "correct"       :   ["American Civil War began"],
-            "explanation"   :   "South Carolina came under attack when Confederate soldiers attacked Fort Sumter. The war lasted until April 9th 1865.",
+            "correct"       :   "Friends of the Earth",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: You must only buy the ingredients that are on your shopping list for the next week.",
         },
+				{
+            "question"      :   "Q4:  Which is called the farmers friends?",
+            "choices"       :   [
+                                    "Farmers' market",
+                                    "Earth worm",
+                                    "Land",
+                                    "Pesticides"
+                                ],
+            "correct"       :   "Earth worm",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: You must not use any plastic bags during tomorrow.",
+        },
+				{
+            "question"      :   "Q5: Which is the world’s largest type of earth worm?",
+            "choices"       :   [
+                                    "South Africa earth worm",
+                                    "Greenland earth worm",
+                                    "China earth worm",
+                                    "North Korea earth worm"
+                                ],
+            "correct"       :   "South Africa earth worm",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: You must eat your leftovers tomorrow.",
+        },
+				{
+            "question"      :   "Q6: Rain or other forms of precipitation containing acid formed by industrial pollutants is called _?",
+            "choices"       :   [
+                                    "Deadly Rain",
+                                    "Only Once Rain",
+                                    "Acid Rain",
+                                    "Brutal Rain"
+                                ],
+            "correct"       :   "Acid Rain",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: You must create a compost bin and implement a composting system as soon as tomorrow.",
+        },
+				{
+            "question"      :   "Q7: This layer absorbs 99% of sun’s ultraviolet radiations which are very harmful for animals and plants. So this layer is called a shield to the earth. Name this layer.",
+            "choices"       :   [
+                                    "First Layer",
+                                    "Bad Ass Layer (BAL)",
+                                    "Ozone Layer",
+                                    "Stratosphere Layer"
+                                ],
+            "correct"       :   "Ozone Layer",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: If you drink coffee, you must carry all the coffee you take in a bottle for a month.",
+        },
+				{
+            "question"      :   "Q8: Which color is used as the sign of conservation and environment?",
+            "choices"       :   [
+                                    "Blue",
+                                    "Eburnean",
+                                    "Red-Orange-ish",
+                                    "Green"
+                                ],
+            "correct"       :   "Green",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: You must not buy any food that is packaged during your next visit to your local food market.",
+        },
+				{
+            "question"      :   "Q9: Which country produces the world’s largest quantity of municipal waste per person per year at over five-sixths of a ton?",
+            "choices"       :   [
+                                    "USA",
+                                    "Canada",
+                                    "Djibouti",
+                                    "Bermuda"
+                                ],
+            "correct"       :   "USA",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: The next time you buy food, it must be in your local farmer's market.",
+        },
+				{
+            "question"      :   "Q10: What kind of satellite makes the global studies of the environment?",
+            "choices"       :   [
+                                    "Darth Vader satellites",
+                                    "Facebook satellites",
+                                    "Meteorological satellites",
+                                    "There is no satellite. It is all magic."
+                                ],
+            "correct"       :   "Meteorological satellites",
+            "explanation"   :   "Search on da internet.",
+						"consequence"		:		"Consequence: You must grow something new in your garden. If you do not have one, you must create your garden.",
+        }
 
     ];
 
@@ -92,9 +190,9 @@
 //use this for ECMA script 6
 quiz.forEach(q => q.choices.scramble());
 //console.log(quiz[0].choices);
-		
+
 quiz = shuffle(quiz);
-	    
+
     /******* No need to edit below this line *********/
     var currentquestion = 0, score = 0, submt=true, picked;
 
@@ -121,7 +219,7 @@ quiz = shuffle(quiz);
 				}
 			}
 		}
-        
+
         /**
          * Resets all of the fields to prepare for next question
          */
@@ -141,27 +239,27 @@ quiz = shuffle(quiz);
 			}
 			addChoices(quiz[currentquestion]['choices']);
 			setupButtons();
-			
+
 			jQuery(document).ready(function($){
 				$("#question").html(function(){
 					var text= $(this).text().trim().split(" ");
 					var first = text.shift();
 					return (text.length > 0 ? "<span class='number'>"+ first +"</span> " : first) + text.join(" ");
 				});
-				
+
 				$('p.pager').each(function(){
 					var text = $(this).text().split(' ');
 					if(text.length < 2)
 						return;
-					
+
 					text[1] = '<span class="qnumber">'+text[1]+'</span>';
 					$(this).html(
 						text.join(' ')
 					);
 				});
-				
+
 			});
-			
+
         }
 
         /**
@@ -170,19 +268,13 @@ quiz = shuffle(quiz);
          * @param {choice} number The li zero-based index of the choice picked
          */
         function processQuestion(choice){
-            var correct_flag = 0;
-            for (var i = 0; i < quiz[currentquestion]['correct'].length; i++){
-                if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct'][i]){
-                    correct_flag = 1;
-                }
-            }
-            if(correct_flag === 1){
+            if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']){
 				$('.choice').eq(choice).addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'});
 				$('#explanation').html('<span class="correct">CORRECT!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
 				score++;
 			} else {
                 $('.choice').eq(choice).addClass('btn-danger').css({'font-weight':'bold', 'border-color':'#f93939', 'color':'#fff'});
-                $('#explanation').html('<span class="incorrect">INCORRECT!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
+                $('#explanation').html('<span class="incorrect">INCORRECT!</span> ' + htmlEncode(quiz[currentquestion]['consequence']));
             }
             currentquestion++;
 
@@ -191,7 +283,7 @@ quiz = shuffle(quiz);
 					$(this).text('GET QUIZ RESULTS').on('click');
 					endQuiz();
 				})
-				
+
 			} else if (currentquestion < quiz.length){
 				$('#submitbutton').html('NEXT QUESTION &raquo;').removeClass('btn-success').addClass('btn-warning').css({'font-weight':'bold', 'border-color':'#faa732', 'color':'#fff'}).on('click', function(){
 					$(this).text('- CHECK ANSWER -').removeClass('btn-warning').addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'}).on('click');
@@ -203,7 +295,7 @@ quiz = shuffle(quiz);
 				//	})
 			}
 
-			
+
 		}
 
         /**
@@ -224,7 +316,7 @@ quiz = shuffle(quiz);
 				}
 			})
 		}
-        
+
         /**
          * Quiz ends, display a message.
          */
@@ -236,7 +328,7 @@ quiz = shuffle(quiz);
 			$('.rsform-block-submit').addClass('show');
             $('#question').text("You got " + score + " out of " + quiz.length + " correct.");
             var $final_score = Math.round(score/quiz.length * 100);
-            $(document.createElement('h4')).addClass('score').text($final_score + '%').insertAfter('#question');		
+            $(document.createElement('h4')).addClass('score').text($final_score + '%').insertAfter('#question');
             if ($final_score === 100){
                 $(document.createElement('p')).addClass('score_description')
                 .text("Bravo ! You are extremely ecologically responsible ! Keep it going !")
@@ -262,7 +354,7 @@ quiz = shuffle(quiz);
 			} else {
 				$(document.createElement('h2')).text("Quiz").appendTo('#frame');
 			}
-			
+
 			//add pager and questions
 			if(typeof quiz !== "undefined" && $.type(quiz) === "array"){
 				//add pager
@@ -273,51 +365,51 @@ quiz = shuffle(quiz);
 				if(quiz[0].hasOwnProperty('image') && quiz[0]['image'] != ""){
 					$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
 				}
-				
+
 				$(document.createElement('p')).addClass('explanation').attr('id','explanation').html('').appendTo('#frame');
-				
+
 				//questions holder
 				$(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
-				
+
 				//add choices
 				addChoices(quiz[0]['choices']);
-				
+
 				//add submit button
 				$(document.createElement('div')).addClass('btn-success choice-box').attr('id', 'submitbutton').text('- CHECK ANSWER -').css({'font-weight':'bold', 'color':'#fff','padding':'30px 0', 'border-radius':'10px'}).appendTo('#frame');
-				
+
 				setupButtons();
 			}
 		}
-	
+
 		init();
-	
+
 	});
-		
-	jQuery(document).ready(function($){			
+
+	jQuery(document).ready(function($){
 		$("#question").html(function(){
 		var text= $(this).text().trim().split(" ");
 		var first = text.shift();
 			return (text.length > 0 ? "<span class='number'>"+ first +"</span> " : first) + text.join(" ");
 		});
-		
+
 		$('p.pager').each(function(){
 			var text = $(this).text().split(' ');
 			if(text.length < 2)
 				return;
-			
+
 			text[1] = '<span class="qnumber">'+text[1]+'</span>';
 			$(this).html(
 				text.join(' ')
 			);
 		});
 
-	});	
+	});
 
 		function copyText() {
 			var output = document.getElementById("frame").innerHTML;
 			document.getElementById("placecontent").value = output;
 		}
-	    
+
     </script>
     <style type="text/css" media="all">
 		input 													{ height:30px !important; }
@@ -370,10 +462,10 @@ quiz = shuffle(quiz);
 	<div class="col-sm-6 formControls">
 		<!-- <textarea cols="50" rows="5" name="form[placecontent]" id="placecontent" readonly="" class="rsform-text-box form-control rsform-text-box"></textarea>			 -->
 	</div>
-</div>	
-	
+</div>
+
 <div class="col-sm-6 formControls rsform-block-submit">
-	<button name="form[submit]" id="submit" class="  btn btn-primary" onclick="location.href='/';">Go back to Main Page</button>			
-</div>	
+	<button name="form[submit]" id="submit" class="  btn btn-primary" onclick="location.href='/otherPage';">Go back to Main Page</button>
+</div>
 </body>
 </html>

@@ -45,21 +45,20 @@
         }
       }).done(function (document){
         var $city = $("#my-container").attr("class");
-        _aqiFeed({  
-          city: $city, 
-          display:"<span style='%style;padding:0 5px'>%impact</span> (%aqiv on %date)",
-          container: "my-container"
-        }); 
+        _aqiFeed({  city: $city,  callback:function(aqi){
+        $("#my-container").html(aqi.details);
+        }  });
       })
 
       function deployAPI(){
         var city = document.getElementById("location-input").value;
         try {
-          _aqiFeed({  
-            city: city,  
-            display:"<span style='%style;padding:0 5px'>%impact</span> (%aqiv on %date)",
-            container: "my-second-container" 
-          }); 
+          _aqiFeed({
+            city: city,
+            callback:function(aqi){
+              $("#my-second-container").html(aqi.details);
+            }
+          });
         }
         catch (err){
           document.getElementById("my-second-container").innerHTML = "Formatting Error";
@@ -91,19 +90,19 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link text-dark" id="HOME" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-dark" href="#">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" id="QUIZ" href="#">Quiz</a>
+                <a class="nav-link text-dark" href="#">Quiz</a>
               </li>
               <li>
-                <a class="nav-link text-dark" id="MUSIC" href="#">Music Propaganda</a>
+                <a class="nav-link text-dark" href="#">Music Propaganda</a>
               </li>
               <li>
-                <a class="nav-link text-dark" id="AIR" href="#">Air Pollution</a>
+                <a class="nav-link text-dark" href="#">Air Pollution</a>
               </li>
               <li>
-                <a class="nav-link text-dark" id="CARBON" href="#">Carbon Emissions</a>
+                <a class="nav-link text-dark" href="#">Carbon Emissions</a>
               </li>
             </ul>
           </div>
@@ -144,35 +143,45 @@
       </div>
 
       <!-- Example row of columns -->
-
       <div class="row">
-          <!-- <div class="col-lg-2"></div> -->
         <div class="col-lg-4">
           <h2>Air Quality</h2>
           <p>Here is a closer look at the air quality of <span id="city"></span>, <span id="country"></span></p>
-          <span  id="my-container" style="pointer-events: none;"></span>
-          <p>Or, if you want to choose another location</p>
-          <div class="form-group">
-            <input id="location-input" placeholder="City Name">
-            <button type="submit" class="btn btn-primary" id="location-btn" onclick="deployAPI()">Submit</button>
-          </div>
-          <span id="my-second-container" style="pointer-events: none; font-weight: strong;"></span>
+          <span  id="my-container" ></span>
         </div>
         <div class="col-lg-4">
-            <h2>Environment Quiz</h2>
-            <p>Want to test your knowledge about everyday facts ? Or want to learn how to ecologically responsible ? Take this quiz to find out !</p>
-            <p><a class="btn btn-primary" href="/quiz" role="button">View details &raquo;</a></p>
-          </div>
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+       </div>
         <div class="col-lg-4">
-          <p>Here is a eco-friendly playlist if you are feeling the mood</p>
-          <iframe src="https://open.spotify.com/embed/user/metrolyrics/playlist/3nzSm70WLwGpyj0SBR8OWL"
-            width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <h2>Environment Quiz</h2>
+          <p>Want to test your knowledge about everyday facts ? Or want to learn how to ecologically responsible ? Take this quiz to find out !</p>
+          <p><a class="btn btn-primary" href="/quiz" role="button">View details &raquo;</a></p>
         </div>
       </div>
 
+
+
+      <div class="row">
+        <!-- <div class="col-lg-2"></div> -->
+        <div class="col-lg-4">
+          <h2></h2>
+          <p>Or, if you want to choose another location</p>
+          <div class="form-group">
+            <input id="location-input">
+            <button type="submit" class="btn btn-primary" id="location-btn" onclick="deployAPI()">Submit</button>
+          </div>
+          <span id="my-second-container"></span>
+        </div>
+      </div>
+
+      <div ></div>
+
+
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; Lolipops 2018</p>
+        <p>&copy; Company 2017</p>
       </footer>
 
     </div> <!-- /container -->
