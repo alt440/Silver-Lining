@@ -5,14 +5,22 @@ var activitiesArray = [
   "breakfast.jpg",
   "trash.jpg",
   "reusableContainers.jpg",
-  "bicycle.jpg",
+  "walk.jpg",
   "carpool.jpg",
   "food.jpg",
   "restaurant.png",
   "packagedFood.jpg",
   "reusableBags.jpg",
   "plasticUtensils.jpg",
-  "lightbulb.jpg"
+  "lightbulb.jpg",
+  "bicycle.jpg",
+  "bus.jpg",
+  "gift.jpg",
+  "log.jpg",
+  "calendar.jpg",
+  "smallplate.jpg",
+  "vegetables.jpg",
+  "jam.jpg"
 ];
 
 //Time of day events are happening
@@ -29,7 +37,15 @@ var timeArray = [
   "17:00",
   "17:30",
   "18:30",
-  "19:00"
+  "19:00",
+  "19:30",
+  "20:00",
+  "20:30",
+  "21:00",
+  "21:30",
+  "22:00",
+  "22:30",
+  "23:00"
 ];
 
 //must follow the timeArray order!
@@ -45,7 +61,15 @@ var descriptionArray = [
   "Buy less packaged food",
   "Bring your reusable bags to supermarkets",
   "Abandon the plastic utensils for your metal utensils",
-  "Turn off the light when you do not need it"
+  "Turn off the light when you do not need it",
+  "Go for a bike ride to get used to reducing gas emission",
+  "Take the bus home to encourage common commuting",
+  "Order mom's gift online since virtual shopping is greener",
+  "Make your weekly entry in your trash log",
+  "Check your fridge for food that is nearly expired and make sure you eat it",
+  "Buy smaller plates",
+  "Check on your home grown vegetables",
+  "Make your own jam"
 ];
 
 //returns the winning index (event that is closest to the current time)
