@@ -40,12 +40,12 @@ router.get('/', function(req, res){
 
 })
 
-router.get('/otherPage.ejs', function(req, res){
+router.get('/otherPage', function(req, res){
   res.render('pages/otherPage.ejs');
 })
 
 router.get('/quiz', function(req, res){
-  res.sendFile(__dirname+'/quiz.html');
+  res.render('pages/quiz.ejs');
 })
 
 //setting folder as views folder
