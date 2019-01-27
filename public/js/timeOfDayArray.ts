@@ -67,7 +67,7 @@ function getTimeOfDayEvent(){
   var hours = date.getHours();
   var minutes = date.getMinutes();
 
-  alert(hours+":"+minutes);
+  //alert(hours+":"+minutes);
 
   //closest index above the actual time
   var winningIndex = 0;
@@ -117,6 +117,6 @@ function getTimeOfDayEvent(){
       }
     }
   }
-  alert(winningHour+":"+winningMinutes);
+  //alert(winningHour+":"+winningMinutes);
   return winningIndex;
 }
