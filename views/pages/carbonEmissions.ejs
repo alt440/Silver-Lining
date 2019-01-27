@@ -22,9 +22,16 @@
     <!--<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/">-->
 
     <script type="text/javascript" src="js/navBarInteractions.js"></script>
+
+    <link rel="stylesheet" href="css/carbonEmissions.css">
   </head>
 
   <body>
+
+    <!-- hide score stuff before input request-->
+    <script>
+      document.getElementById("surroundScore").style.visibility = "hidden";
+    </script>
 
     <div class="masthead">
       <h3 class="text-muted">FEW Project</h3>
@@ -61,7 +68,8 @@
     <br/>
     <br/>
     <h3>Know Your Car's Carbon Footprint</h3>
-    <p>Please enter the model, make, and year of your vehicle to get a
+    <p>See your vehicle's ranking below! You will need to enter the model,
+      make, and year of your vehicle to get a <br>
       score on the fuel emissions of your vehicle.</p>
 
     <form method="POST">
@@ -72,7 +80,54 @@
       <input class="btn-primary" type="submit" value="Submit">
     </form>
 
-    <p id="QueryAnswer"></p>
+    <p id="explanation">The score is attributed in the following way: 1.0 is
+    the worst score a vehicle can get, <br/>while 10.0 is the best score a vehicle can get.</p>
+
+    <p>Your score is:</p>
+    <div id="surroundScore">
+      <p id="score"></p>
+    </div>
+
+    <!--
+    Mazda 5 2006
+    <make>Ford</make><mfrCode>FMX</mfrCode><model>E150 Van FFV</model>
+    2012
+    -->
+
+
+    <% if(emissions.localeCompare("") != 0 && vehicles.localeCompare("")!=0){ %>
+    <script>
+      var emissions_ = <%- JSON.stringify(emissions) %>;
+      //separate the emissions_ variable into the different information that we want
+      var array_ = emissions_.split(",");
+
+      //just directly get the position of the beginning of the start?
+      var score = emissions_.indexOf("score\":");
+      //then add 8, bc thats indexes b4 value (there are the "" b4)
+      score = score+8;
+      //cuts from score. First important variable
+      var importantVals = emissions_.substring(score);
+
+      var removeDQuotes = importantVals.split("\"");
+
+      //real score value
+      score = removeDQuotes[1];
+
+      //real score alt value
+      var scoreAlt = removeDQuotes[5];
+
+      document.getElementById("score").innerHTML = " "+score;
+      if(parseInt(score)>=8){
+        document.getElementById("surroundScore").style.backgroundColor = '#22CC00';
+      }
+      else if(parseInt(score)>=5){
+        document.getElementById("surroundScore").style.backgroundColor = '#FFD500';
+      }
+
+      document.getElementById("surroundScore").style.visibility = "visible";
+
+    </script>
+    <% } %>
 
   </body>
   </html>
