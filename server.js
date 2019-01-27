@@ -11,53 +11,7 @@ var jsonQuery = require('json-query');
 app.set('view engine', 'ejs');
 
 router.get('/carbonEmissions', function(req, res, next){
-
-
-  // var vehicles = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year="
-  // +req.body.year+"&make="+req.body.make+"&model="+req.body.model,
-  /*var smtg;
-  var vehicles =  Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2012&make=Honda&model=Fit",
-   function (error, response, body) {
-             if (error) {
-                 throw error;
-             }
-             //console.log("response" + response);
-             //smtg = body;
-              response = parseString(body, function (err, result) {
-   //console.dir(JSON.stringify(result));
-   smtg=result;
-   //console.log("Parsed response"+ JSON.stringify(smtg) );
-   var emissions = [];
-   for(i=0 ; i < smtg.menuItems.menuItem.length; i++){
-     var emission = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/emissions/"
-      +result.menuItems.menuItem[i].value,
-      function (error, response, body) {
-                if (error) {
-                    throw error;
-                }
-
-                var emission = parseString(body, function (err, result) {
-                  emissions.push(result);
-                  console.log("emission " +i);
-                  if(i == smtg.menuItems.menuItem.length){
-                      console.log("EMISSION!! "+ JSON.stringify(emissions));
-                      console.log("VEHICLE!! "+ JSON.stringify(smtg.menuItems));
-                      res.render('pages/carbonEmissions.ejs',{emissions:JSON.stringify(emissions),vehicles:JSON.stringify(smtg.menuItems)});
-                  }
-                });
-
-   });
- }
-
-});
-});*/
-
-
-
-//console.log("vehicle"+ JSON.stringify(vehicles.body));
-
   res.render('pages/carbonEmissions.ejs', {emissions: "", vehicles: ""});
-
 })
 
 router.post('/carbonEmissions',async(req,res)=>{
@@ -115,38 +69,6 @@ router.post('/carbonEmissions',async(req,res)=>{
     }
 
       });
-
-  // var vehicles = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year="
-  // +req.body.year+"&make="+req.body.make+"&model="+req.body.model,
-  /*var vehicles = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2012&make=Honda&model=Fit",
-   function (error, response, body) {
-             if (error) {
-                 throw error;
-             }
-             console.log("response" + response);
-              response = parseString(body, function (err, result) {
-   console.dir(JSON.stringify(result));
-   var emissions = []
-   // for(i = 0; i < result.menuItems.menuItem.length; i++){
-   //   var emission = Request.get("https://www.fueleconomy.gov/ws/rest/vehicle/emissions/"
-   //   +result.menuItems.menuItem[i],
-   //   function (error, response, body) {
-   //             if (error) {
-   //                 throw error;
-   //             }
-   //
-   //             var emission = parseString(body, function (err, result) {});
-   //             emissions.push(emission);
-   //             console.log("emission" + emission);
-   //             if(i == result.menuItems.menuItem.length){
-   //
-   //             }
-   // });
-   //console.log("emissions" + emissions);
-   res.redirect('/carbonEmissions',{items:result.menuItems});
- });
- console.log("Parsed response"+ response );
-*/
 });
 })
 
