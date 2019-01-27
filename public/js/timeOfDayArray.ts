@@ -53,8 +53,9 @@ function getTimeOfDayEvent(){
 
   var date;
 
-  if(localStorage.getItem("timezone").localeCompare("Select Location")!=0 &&
-      localStorage.getItem("timezone") != undefined){
+  if(localStorage.getItem("timezone").localeCompare("Asia/Shanghai")==0 ||
+      localStorage.getItem("timezone").localeCompare("Asia/Kolkata") == 0 ||
+      localStorage.getItem("timezone").localeCompare("America/New_York") == 0){
         date = new Date().toLocaleString("en-US", {timeZone: localStorage.getItem("timezone")});
         date = new Date(date);
         /*date.toLocaleString('en-US',
