@@ -19,4 +19,5 @@ $( document ).ready(function() {
     location.reload();
   })
 
+  $("#masthead").load("./navBar.html");
 });
