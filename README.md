@@ -8,9 +8,9 @@ A web application that promotes an environmental protection. The site includes p
 
 - Quizzes which allow users to learn actively about what is necessary to reduce the environmental issues
 
-- Indicates level of air pollution and 
+- Indicates level of air pollution
 
-- Calculates carbon emission along with your vehicle
+- Calculates carbon emission of your vehicle
 
 - Location/Time zone shift available
 
