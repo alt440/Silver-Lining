@@ -18,3 +18,9 @@ A web application that promotes an environmental protection. The site includes p
 # Instructions
 
 You must download your node dependencies, using "npm install". You might need to install them manually.
+
+# Web Page
+
+https://silver-lining-conuhacks.herokuapp.com/
+
+This is where the website is located. Using heroku.
